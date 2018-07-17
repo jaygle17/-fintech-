@@ -9,4 +9,4 @@
 ![](https://github.com/jaygle17/-fintech-/blob/master/bm25.png)
 
 BM25算法通过加入文档权值和查询权值，拓展了二元独立模型的得分函数。这种拓展是基于概率论和实验验证的，并不是一个正式的模型。BM25模型在二元独立模型的基础上，考虑了单词在查询中的权值以及单词在文档中的权值，拟合综合上述考虑的公式，并通过实验引入经验参数。一句话概况其主要思想：对Query进行语素解析，生成语素qi；然后，对于每个搜索结果D，计算每个语素qi与D的相关性得分，最后，将qi相对于D的相关性得分进行加权求和，从而得到Query与D的相关性得分。
-[visit it](https://blog.csdn.net/Jaygle/article/details/80927732)
+[参考链接](https://blog.csdn.net/Jaygle/article/details/80927732)
