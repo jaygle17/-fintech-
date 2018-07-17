@@ -6,4 +6,4 @@
 使用bm25算法进行文本相似度分析,为了提高相似度计算精确度，除了对训练测试集数据进行分词和停用词操作以外，还对训练集数据额外进行了重复语句的去重操作，结果证明这样的一列数据处理过程，提升了bm25算法的理论上限；
 * bm25new.py  
 针对bm25算法的实现代码，使用了IDF原理判断一个词与一个文档的相关性的权重，
-![](https://raw.githubusercontent.com/Roc-J/-finthech-/master/results.png)
+![](https://raw.githubusercontent.com/Roc-J/-finthech-/master/bm25.png)
