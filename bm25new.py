@@ -133,7 +133,8 @@ class BM25(object):
         for word in set(document):
             if word not in self.f[index]:
                 continue
-            idf = self.idf[word] if self.idf[word] >= 0 else EPSILON * average_idf # 计算每个单词的idf
+			# 针对训练和测试集中都存在的单词，计算score,用到单词的idf,tf,len,avgdl,以及其他调节参数
+            idf = self.idf[word] if self.idf[word] >= 0 else EPSILON * average_idf # 计算训练集单条新闻中，每个单词的idf
             score += (idf * self.f[index][word] * (PARAM_K1 + 1)
                       / (self.f[index][word] + PARAM_K1 * (1 - PARAM_B + PARAM_B * self.doc_len[index] / self.avgdl))) * ((param+1.0)*test_dict[word]) / (param+test_dict[word])
         return score
@@ -166,7 +167,7 @@ class BM25(object):
 
         """
         scores = []
-        for index in xrange(self.corpus_size):
+        for index in xrange(self.corpus_size): # 对语素中每个新闻index,分别计算与测试新闻的分数
             score = self.get_score(document, index, average_idf)
             scores.append(score)
         return scores
